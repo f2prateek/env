@@ -7,7 +7,9 @@ import (
 	"github.com/f2prateek/go-pointers"
 )
 
-func Bool(name string, value *bool) *bool {
+// Bool defines a bool flag with specified name and default value. The return
+// value is the address of a bool variable that stores the value of the flag.
+func Bool(name string, value *bool, usage string) *bool {
 	env := os.Getenv(name)
 	if env == "" {
 		return value
@@ -19,6 +21,9 @@ func Bool(name string, value *bool) *bool {
 	return pointers.Bool(b)
 }
 
+// String defines a string flag with specified name and default value. The
+// return  value is the address of a string variable that stores the value of
+// the flag.
 func String(name string, value *string) *string {
 	env := os.Getenv(name)
 	if env == "" {
